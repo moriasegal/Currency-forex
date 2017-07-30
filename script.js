@@ -16,7 +16,7 @@ $('#firstBtn').click(function(){
 function viewData(index, element){
     var symbols = element.text();
     symbols = symbols.substring(0, 3);
-    $.get('http://api.fixer.io/latest?base='+symbols+'&symbols=USD', function(data2){
+    $.get('https://api.fixer.io/latest?base='+symbols+'&symbols=USD', function(data2){
         $(".time").eq(index).text(data2.date);
         $(".price").eq(index).text(data2.rates.USD);
 //        $(".symbol").eq(index).text(element.text());
@@ -25,7 +25,7 @@ function viewData(index, element){
 
 function getForexUrl(from, to, quantity){
      new Promise (function(resolve){
-     $.get('http://api.fixer.io/latest?base='+from+'&symbols='+to, function(data){
+     $.get('https://api.fixer.io/latest?base='+from+'&symbols='+to, function(data){
            resolve(data); 
         });
      }).then(function(data){
